@@ -1,0 +1,22 @@
+Задание 1 
+-шаблон Front Controller реализован классом Kernel (app/Kernel.php)
+-начало выполнения кода происходит при вызове метода handle() в файле web/index.php
+-в методе handle() происходит инициализация данных, применяемая в приложении в зависимости от запроса (маршрут (registerRoutes) и конфигурация (registerConfigs)), так же этот метод вызывает метод process(), в котором происходит дальнейшая обработка в соответствии от запроса и значениями аргументов
+-в шаблоне происходит взаимодействие со следующими классами:
+Framework\Registry;
+Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+Symfony\Component\DependencyInjection\ContainerBuilder;
+Symfony\Component\Config\FileLocator;
+Symfony\Component\HttpKernel\Controller\ControllerResolver;
+Symfony\Component\HttpKernel\Controller\ArgumentResolver;
+Symfony\Component\HttpFoundation\Request;
+Symfony\Component\HttpFoundation\Response;
+Symfony\Component\HttpFoundation\Session\Session;
+Symfony\Component\Routing\Exception\ResourceNotFoundException;
+Symfony\Component\Routing\Matcher\UrlMatcher;
+Symfony\Component\Routing\RequestContext;
+Symfony\Component\Routing\RouteCollection;
+
+Задание 2
+-паттерн Registry реализован в файле app/framework/Registry.php в классе Registry
+-применение его в этом месте обусловлено необходимостью рендерить разные страницы, в зависимости от соответствующего роутера, так же для выделения геттеров для работы с обьектами (getDataConfig, getRoute)
