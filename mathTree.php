@@ -29,18 +29,15 @@ function rpn($str)
         if (preg_match("/[\+\-\*\/\^]/", $value))
         {
             $endop = FALSE;
-
             while ($endop != TRUE) {
                 $lastop = array_pop($stack);
                 if ($lastop == "") {
                     $stack[] = $value;
                     $endop = TRUE;
-                } else
+                } else 
                 {
-                    /* Получим приоритет */
                     $curr_prior = $prior[$value]['prior'];
                     $curr_assoc = $prior[$value]['assoc'];
-
                     $prev_prior = $prior[$lastop]['prior'];
 
                     switch ($curr_assoc)
@@ -116,7 +113,6 @@ function rpn($str)
 
             $lastnum = FALSE;
         }
-
     }
 
     $stack1 = $stack;
